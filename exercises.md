@@ -49,7 +49,7 @@ Chọn một đoạn văn tiếng Việt ~100 từ. So sánh số token theo `co
 
 **Hai con số chênh nhau bao nhiêu phần trăm? Vì sao tiếng Việt thường tốn
 nhiều token hơn tiếng Anh cùng độ dài?**
-> Số token từ tiktoken thường cao hơn nhiều so với ước lượng số từ / 0.75 vì mỗi từ tiếng Việt có dấu thường bị bộ mã hóa chia thành nhiều "sub-tokens" hơn. Do đa số các mô hình LLM được huấn luyện chính trên tiếng Anh, các ký tự đặc biệt của tiếng Việt không được tối ưu hóa, dẫn đến việc tiêu tốn nhiều token hơn so với văn bản tiếng Anh cùng độ dài.
+> Khi so sánh số lượng token của một đoạn văn tiếng Việt với ước lượng "số từ chia 0.75", kết quả thường cho thấy sự chênh lệch đáng kể, với số token thực tế từ count_tokens lớn hơn từ 20% đến 40% so với con số ước lượng. Nguyên nhân chủ yếu nằm ở cách hoạt động của bộ mã hóa (tokenizer). Các bộ tokenizer phổ biến hiện nay được tối ưu hóa chủ yếu trên tập dữ liệu tiếng Anh, nơi các từ thường được đại diện bởi các token dài và hiệu quả. Ngược lại, do tiếng Việt có các dấu thanh và ký tự đặc thù, bộ mã hóa thường phải bẻ nhỏ các từ này thành nhiều token hơn để biểu diễn, dẫn đến việc tổng số lượng token cho cùng một độ dài văn bản cao hơn so với tiếng Anh. Chính đặc điểm này là yếu tố quan trọng cần cân nhắc khi tính toán chi phí sử dụng API cho các ứng dụng tiếng Việt.
 
 ---
 
